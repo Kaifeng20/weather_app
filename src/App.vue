@@ -80,20 +80,19 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
 }
 
 .app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   text-align: center;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   transition: background 0.5s;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .sunny {
@@ -117,7 +116,12 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 20px;
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  
+  border-radius: 10px;
+  margin: 20px;
 }
 
 input {
@@ -125,6 +129,9 @@ input {
   margin: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
+  width: 100%;
+  max-width: 280px;
+  box-sizing: border-box;
 }
 
 button {
@@ -135,6 +142,8 @@ button {
   color: white;
   border: none;
   cursor: pointer;
+  width: 100%;
+  max-width: 300px;
 }
 
 button:hover {
@@ -142,8 +151,11 @@ button:hover {
 }
 
 .weather-info {
+  margin-top: 20px;
   padding: 20px;
   border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .weather-icon {
@@ -155,5 +167,24 @@ button:hover {
 .error {
   color: red;
   margin-top: 20px;
+}
+
+@media (max-width: 600px) {
+  header {
+    font-size: 1.5em;
+  }
+
+  main {
+    padding: 10px;
+  }
+
+  input, button {
+    max-width: 100%;
+  }
+
+  .weather-icon {
+    width: 80px;
+    height: 80px;
+  }
 }
 </style>
