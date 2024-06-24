@@ -34,8 +34,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### Description
 
-1. **Project name**: `weather-app`. 2.
+1. **Project name**: `weather-app`. 
 2. **Project description**: A simple weather app, built with Vue.js, that displays current weather information based on user input. 3. **Functionality list**: Lists the main features.
-3. **Feature list**: lists the main features of the app. 4.
+3. **Feature list**: lists the main features of the app. 
 4. **Project Setup**: Includes commands for installing dependencies, development compilation, production compilation, code checking and fixing.
 5. **Configuration Reference**: provides a link to the configuration reference documentation for the Vue CLI.

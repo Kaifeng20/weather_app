@@ -8,6 +8,7 @@
         v-model="location"
         type="text"
         placeholder="Enter city or postal code"
+        @keyup.enter="fetchWeather"
       />
       <button @click="fetchWeather">Search</button>
       <div v-if="error" class="error">{{ error }}</div>
