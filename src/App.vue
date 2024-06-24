@@ -12,6 +12,7 @@
       <button @click="fetchWeather">Search</button>
       <div v-if="error" class="error">{{ error }}</div>
       <div v-if="weather" class="weather-info">
+        <h2>{{ locationName }}</h2>
         <p>Temperature: {{ weather.main.temp }} °C</p>
         <p>Humidity: {{ weather.main.humidity }} %</p>
         <p>Wind Speed: {{ weather.wind.speed }} m/s</p>
@@ -31,6 +32,7 @@ export default {
   data() {
     return {
       location: '',
+      locationName: '',
       weather: null,
       error: null
     };
@@ -40,10 +42,12 @@ export default {
       try {
         const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${this.location}&appid=${API_KEY}&units=metric`);
         this.weather = response.data;
+        this.locationName = `${response.data.name}, ${response.data.sys.country}`;
         this.error = null;
       } catch (err) {
         this.error = 'Could not fetch weather data. Please check the location and try again.';
         this.weather = null;
+        this.locationName = '';
       }
     }
   }
