@@ -1,5 +1,5 @@
 # weather-app
-
+Using by openweathermap to my API, Use this API to implete the function
 ## Project setup
 ```
 npm install
