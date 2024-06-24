@@ -92,6 +92,7 @@ html, body {
   text-align: center;
   min-height: 100vh;
   transition: background 0.5s;
+  background-image: url('@/assets/Earth.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
