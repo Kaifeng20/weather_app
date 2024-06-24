@@ -12,6 +12,7 @@
       <button @click="fetchWeather">Search</button>
       <div v-if="error" class="error">{{ error }}</div>
       <div v-if="weather" class="weather-info">
+      <img :src="weatherIconUrl" :alt="weather.weather[0].description" class="weather-icon" />
         <h2>{{ locationName }}</h2>
         <p>Temperature: {{ weather.main.temp }} °C</p>
         <p>Humidity: {{ weather.main.humidity }} %</p>
@@ -50,6 +51,11 @@ export default {
       } else {
         return '';
       }
+    },
+    weatherIconUrl() {
+      if (!this.weather) return '';
+      const icon = this.weather.weather[0].icon;
+      return `http://openweathermap.org/img/wn/${icon}@2x.png`;
     }
   },
   methods: {
@@ -104,7 +110,14 @@ html, body {
 
 header {
   font-size: 2em;
-  margin-bottom: 20px;
+  margin: 20px 0;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
 }
 
 input {
@@ -129,10 +142,14 @@ button:hover {
 }
 
 .weather-info {
-
   padding: 20px;
   border-radius: 5px;
+}
 
+.weather-icon {
+  width: 100px;
+  height: 100px;
+  margin-top: 10px;
 }
 
 .error {
