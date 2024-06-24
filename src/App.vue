@@ -1,7 +1,7 @@
 <template>
   <div :class="['app', weatherClass]">
     <header>
-      <h1>Weather App</h1>
+      <h1>Weather Search</h1>
     </header>
     <main>
       <input
@@ -48,7 +48,12 @@ export default {
         return 'cloudy';
       } else if (description.includes('rain')) {
         return 'rainy';
-      } else {
+      } else if (description.includes('Snow')) {
+        return 'snow';
+      }else if (description.includes('haze')) {
+        return 'haze';
+      }
+      else {
         return '';
       }
     },
@@ -107,9 +112,18 @@ html, body {
   background-image: url('@/assets/Rain.png');
 }
 
+.haze {
+  background-image: url('@/assets/Haze.png');
+}
+
+.snow {
+  background-image: url('@/assets/Snow.png');
+}
+
 header {
   font-size: 2em;
   margin: 20px 0;
+  height: 100px;
 }
 
 main {
