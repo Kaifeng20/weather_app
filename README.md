@@ -39,5 +39,3 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 3. **Feature list**: lists the main features of the app. 4.
 4. **Project Setup**: Includes commands for installing dependencies, development compilation, production compilation, code checking and fixing.
 5. **Configuration Reference**: provides a link to the configuration reference documentation for the Vue CLI.
-
-Translated with www.DeepL.com/Translator (free version)
