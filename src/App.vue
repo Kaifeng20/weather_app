@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div :class="['app', weatherClass]">
     <header>
       <h1>Weather App</h1>
     </header>
@@ -37,6 +37,21 @@ export default {
       error: null
     };
   },
+  computed: {
+    weatherClass() {
+      if (!this.weather) return '';
+      const description = this.weather.weather[0].description.toLowerCase();
+      if (description.includes('clear')) {
+        return 'sunny';
+      } else if (description.includes('cloud')) {
+        return 'cloudy';
+      } else if (description.includes('rain')) {
+        return 'rainy';
+      } else {
+        return '';
+      }
+    }
+  },
   methods: {
     async fetchWeather() {
       try {
@@ -55,10 +70,36 @@ export default {
 </script>
 
 <style scoped>
-#app {
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   text-align: center;
-  margin-top: 60px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.5s;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.sunny {
+  background-image: url('@/assets/Sunny.png');
+}
+
+.cloudy {
+  background-image: url('@/assets/Cloudy.png');
+}
+
+.rainy {
+  background-image: url('@/assets/Rain.png');
 }
 
 header {
@@ -88,7 +129,10 @@ button:hover {
 }
 
 .weather-info {
-  margin-top: 20px;
+
+  padding: 20px;
+  border-radius: 5px;
+
 }
 
 .error {
